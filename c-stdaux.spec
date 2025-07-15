@@ -36,16 +36,16 @@ compilers like gcc and clang.
 %setup -q
 
 %build
-%meson build
+%meson
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_npkgconfigdir}
 
-%ninja_install -C build
+%meson_install
 
 %{__mv} $RPM_BUILD_ROOT%{_pkgconfigdir}/*.pc $RPM_BUILD_ROOT%{_npkgconfigdir}
 
